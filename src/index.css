@@ -35,6 +35,7 @@ body {
 button {
     background-color: #e43c32;
     color: #fff;
+    padding: 0 45px;
     border: 2px solid #FFF;
     border-radius: 25px;
     height: 50px;
