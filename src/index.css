@@ -1,6 +1,6 @@
 :root {
-    --gradient: linear-gradient(45deg, #845ec2, #d65db1, #ff6f91, #ff9671, #ffc75f, #f9f871, #ffc75f, #ff9671, #ff6f91, #d65db1, #845ec2);
-    --gradient-darkblue: linear-gradient(45deg, #080C2Fff,#0E1843ff,#142356ff,#1A2F6Aff,#1F3A7Dff,#254691ff,#2B51A4ff);
+    --gradient: linear-gradient(90deg, #845ec2, #d65db1, #ff6f91, #ff9671, #ffc75f, #f9f871, #ffc75f, #ff9671, #ff6f91, #d65db1, #845ec2);
+    --gradient-darkblue: linear-gradient(150deg, #080C2Fff,#0E1843ff,#142356ff,#1A2F6Aff,#1F3A7Dff,#254691ff,#2B51A4ff);
 }
 
 html, body {
@@ -14,7 +14,7 @@ body {
     color: #fff;
     background: var(--gradient-darkblue);
     background-size: 400% 400%;
-    animation: bg-animation 300s ease infinite;
+    animation: bg-animation 100s ease infinite;
     height: 100vh;
 }
 
@@ -30,4 +30,21 @@ body {
     100% {
         background-position: 0% 50%;
     }
+}
+
+button {
+    background-color: #e43c32;
+    color: #fff;
+    border: 2px solid #FFF;
+    border-radius: 25px;
+    height: 50px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+button:hover {
+    background-color: #751b14;
 }
