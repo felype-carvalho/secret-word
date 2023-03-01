@@ -130,7 +130,7 @@ function App() {
                     score={score}
                 />
             )}
-            {gameStage === 'end' && <GameOver restartGame={restartGame} />}
+            {gameStage === 'end' && <GameOver restartGame={restartGame} score={score} />}
 
         </div>
     );
