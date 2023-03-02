@@ -12,11 +12,12 @@ const Game = ({
     guessedLetters,
     wrongLetters,
     guesses,
-    score
+    score,
+    language
 }) => {
     const [letter, setLetter] = useState("");
     const letterInputRef = useRef(null);
-    
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -29,14 +30,15 @@ const Game = ({
 
     return (
         <div className="game">
+            <h1 className="logo">Secret Word</h1>
             <p className="points">
-                <span>Pontuação: {score}</span>
+                <span>{language === "EN" ? ("Score") : ("Pontuação:")} {score}</span>
             </p>
-            <h1>Adivinhe a palavra: </h1>
+            <h1>{language === "EN" ? ("Guess the word:") : ("Adivinhe a palavra: ")}</h1>
             <h3 className="tip">
-                Dica sobre a palavra: <span>{pickedCategory}</span>
+                {language === "EN" ? ("Tip on the word: ") : ("Dica sobre a palavra: ")} <span>{pickedCategory}</span>
             </h3>
-            <p>Você ainda tem {guesses} tentativas</p>
+            <p>{language === "EN" ? ("You still have " + guesses + " attempts") : ("Você ainda tem " + guesses + " tentativas")}</p>
             <div className="wordContainer">
                 {letters.map((letter, i) => (
                     guessedLetters.includes(letter) ? (
@@ -49,7 +51,7 @@ const Game = ({
                 <span className="blankSquare"></span> */}
             </div>
             <div className="letterContainer">
-                <p>Tente advinhar uma letra da palavra: </p>
+                <p>{language === "EN"? ("Try to guess a letter of the word: "): ("Tente advinhar uma letra da palavra: ")}</p>
                 <form onSubmit={handleSubmit}>
                     <input
                         type="text"
@@ -60,13 +62,13 @@ const Game = ({
                         value={letter}
                         ref={letterInputRef}
                     />
-                    <button>Jogar</button>
+                    <button>{language === "EN"? ("Play"): ("Jogar")}</button>
                 </form>
             </div>
             <div className="wrongLettersContainer">
-                <p>Letras já utilizadas: </p>
+                <p>{language === "EN"? ("Letters already used: "): ("Letras já utilizadas: ")}</p>
                 {wrongLetters.map((letter, i) => (
-                    <span key={i}>{letter}, </span>
+                    <span key={i}>{letter.toUpperCase()}, </span>
                 ))}
             </div>
         </div>

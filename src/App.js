@@ -5,8 +5,8 @@ import './App.css';
 import { useCallback, useEffect, useState } from "react";
 
 //Data
-import { wordsListPT } from './data/words';
 import { wordsListEG } from './data/words';
+import { wordsListPT } from './data/words';
 
 import StartScreen from './components/StartScreen';
 import Game from './components/Game';
@@ -22,7 +22,8 @@ const guessesQty = 5;
 
 function App() {
     const [gameStage, setGameStage] = useState(stages[0].name);
-    const [words] = useState(wordsListPT);
+    const [words, setWords] = useState(wordsListEG);
+    const [language, setLanguage] = useState("EN");
 
     const [pickedWord, setPickedWord] = useState("");
     const [pickedCategory, setPickedCategory] = useState("");
@@ -33,6 +34,16 @@ function App() {
     const [guesses, setGuesses] = useState(guessesQty);
     const [score, setScore] = useState(0);
 
+    const changeLanguage = (lang) => {
+        // change languege word list
+        if (lang === "EN") {
+            setWords(wordsListEG);
+        } else {
+            setWords(wordsListPT);
+        }
+
+        setLanguage(lang);
+    }
 
     const pickWordAndCategory = useCallback(() => {
         // pick a random category
@@ -57,9 +68,6 @@ function App() {
         let wordLettlers = word.split("");
 
         wordLettlers = wordLettlers.map((l) => l.toLowerCase());
-
-        console.log(word, category);
-        console.log(wordLettlers);
 
         // fill states
         setPickedWord(word);
@@ -116,7 +124,7 @@ function App() {
         const uniqueLetters = [...new Set(letters)];
 
         // win condition
-        if (guessedLetters.length === uniqueLetters.length && uniqueLetters.length !==0) {
+        if (guessedLetters.length === uniqueLetters.length && uniqueLetters.length !== 0) {
             // add score
             setScore((actualScore) => (actualScore += 100));
 
@@ -124,10 +132,7 @@ function App() {
                 startGame();
             }, 1000);
         };
-        console.log(uniqueLetters)
     }, [guessedLetters, letters, startGame]);
-
-
 
     // restarts the game
     const restartGame = () => {
@@ -139,7 +144,12 @@ function App() {
 
     return (
         <div className="App">
-            {gameStage === 'start' && <StartScreen startGame={startGame} />}
+            {gameStage === 'start' && (
+                <StartScreen
+                    startGame={startGame}
+                    language={language}
+                    changeLanguage={changeLanguage}
+                />)}
             {gameStage === 'game' && (
                 <Game
                     verifyLetter={verifyLetter}
@@ -150,9 +160,15 @@ function App() {
                     wrongLetters={wrongLetters}
                     guesses={guesses}
                     score={score}
+                    language={language}
                 />
             )}
-            {gameStage === 'end' && <GameOver restartGame={restartGame} score={score} />}
+            {gameStage === 'end' && (
+                <GameOver
+                    restartGame={restartGame}
+                    score={score}
+                    language={language}
+                />)}
 
         </div>
     );
