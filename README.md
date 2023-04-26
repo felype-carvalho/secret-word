@@ -30,9 +30,10 @@ Secret Word is a web game developed in React, its objective is to guess words by
 <!-- BUILD WITH -->
 ### Build With
 The technologies used in this project were:
-* [ReactJS](https://reactjs.org)
+* [React](https://reactjs.org)
 * [HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML)
 * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+* [JavaScript] (https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 
 <!-- VISUAL -->
