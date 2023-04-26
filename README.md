@@ -33,7 +33,7 @@ The technologies used in this project were:
 * [React](https://reactjs.org)
 * [HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML)
 * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
-* [JavaScript] (https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+* [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 
 <!-- VISUAL -->
