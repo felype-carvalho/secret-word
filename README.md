@@ -25,7 +25,8 @@
 <!-- ABOUT THE PROJECT -->
 ## About the project
 
-Secret Word is a web game developed in React, its objective is to guess words by suggesting letters. This application was developed together with Matheus Batisti's course - React do Zero a Maestria.
+<p>Secret Word is a web game developed in React, its objective is to guess words by suggesting letters. This application was developed together with Matheus Batisti's course - React do Zero a Maestria.</p>
+<p>In the game it is possible to get scores by hitting words, changing the language of the menus and words between English and Portuguese. Also included 25 words and 5 five categories.</p>
 
 <!-- BUILD WITH -->
 ### Build With
